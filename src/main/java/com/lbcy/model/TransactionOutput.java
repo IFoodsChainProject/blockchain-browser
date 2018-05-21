@@ -8,7 +8,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import java.math.BigDecimal;
 
 /**
- * Created by 吴晓冬 on 2017/9/21.
+ * 
  */
 @Document(collection="dna_transaction_output")
 public class TransactionOutput

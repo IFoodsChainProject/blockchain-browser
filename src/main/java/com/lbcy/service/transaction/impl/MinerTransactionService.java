@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 /**
  * 记账交易 TxType=0
- * Created by 吴晓冬 on 2017/9/20.
  */
 @Service
 public class MinerTransactionService implements TransactionService

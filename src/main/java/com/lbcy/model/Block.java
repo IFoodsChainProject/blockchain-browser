@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Created by 吴晓冬 on 2017/9/20.
+ * 
  */
 @Document(collection="dna_block")
 public class Block

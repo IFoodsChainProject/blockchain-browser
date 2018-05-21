@@ -1,7 +1,7 @@
 package com.lbcy.model;
 
 /**
- * Created by 吴晓冬 on 2017/9/20.
+ * 
  */
 public class BlockchainResponse
 {

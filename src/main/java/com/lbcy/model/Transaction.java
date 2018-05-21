@@ -1,6 +1,8 @@
 package com.lbcy.model;
 
 import com.google.gson.annotations.SerializedName;
+import com.lbcy.common.util.CommonUtils;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -11,7 +13,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Created by 吴晓冬 on 2017/9/20.
+ * 
  */
 @Document(collection="dna_transaction")
 public class Transaction
@@ -323,6 +325,48 @@ public class Transaction
 
         @SerializedName("Nonce")
         private String nonce;
+        
+        /**
+         * 记录数据-类型
+         *     -- record
+         */
+        @SerializedName("RecordType")
+        private String recordType;
+        
+        /**
+         * 记录数据-信息
+         */
+        @SerializedName("RecordData")
+        private String recordData;
+        
+        /**
+         * 解析的数据
+         */
+        private String decryptData;
+        
+        public String getDecryptData() {
+            return CommonUtils.decrypt(recordData);
+        }
+
+        public void setDecryptData(String decryptData) {
+            this.decryptData = decryptData;
+        }
+
+        public String getRecordType() {
+            return recordType;
+        }
+
+        public void setRecordType(String recordType) {
+            this.recordType = recordType;
+        }
+
+        public String getRecordData() {
+            return recordData;
+        }
+
+        public void setRecordData(String recordData) {
+            this.recordData = recordData;
+        }
 
         public Asset getAsset()
         {

@@ -108,6 +108,20 @@
                 </div>
                 <!-- 出入账信息展示 -->
                 <div class="row" style="display: table;width: 100%;table-layout: fixed;margin-left: 3px;margin-right: 3px; border-top: 1px solid #dedede;border-bottom: 1px solid #dedede;">
+                  
+                  <!-- 数据记录信息显示 -->
+                  <div th:if="${transaction.payload != null}" class="col-sm-6" style="padding-top: 10px;padding-bottom: 10px">
+                    <span th:if="${transaction.payload.recordType != null && transaction.payload.recordType == 'record'}" th:each="dataPayload : ${transaction.payload}">
+                      <div class="row">
+                        <nobr>
+                          <div class="col-xs-8">
+                            <a th:text="${dataPayload.decryptData}">APFoxAzPUpxNYfoihnXt4oxtWPbP7tNK4V</a>
+                          </div>
+                        </nobr>
+                      </div>
+                    </span>
+                  </div>
+                  
                   <!-- 左侧出账地址金额 -->
                   <div class="col-sm-6" style="padding-top: 10px;padding-bottom: 10px">
                     <span th:each="utxoInput : ${transaction.utxoInputs}">

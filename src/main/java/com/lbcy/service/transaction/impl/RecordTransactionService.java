@@ -21,8 +21,10 @@ public class RecordTransactionService implements TransactionService
     private MongoTemplate mongoTemplate;
 
     @Override
-    public void deal(Transaction transaction)
-    {
-        logger.info("data:"+transaction.getPayload());
+    public void deal(Transaction transaction) {
+      //保存交易信息
+      transaction.setTypeName("数据记录");
+      mongoTemplate.save(transaction);
     }
+    
 }

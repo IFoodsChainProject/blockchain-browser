@@ -14,7 +14,6 @@ import java.util.List;
 
 /**
  * 合约（转账）交易 TxType=128
- * Created by 吴晓冬 on 2017/9/21.
  */
 @Service
 public class ContractTransactionService implements TransactionService

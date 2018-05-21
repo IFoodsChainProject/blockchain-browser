@@ -1,11 +1,19 @@
 package com.lbcy.common.util;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.util.StringUtils;
+
+import com.lbcy.controller.IndexController;
+
 /**
  * 
  * @author zhenghui.li
  * @date 2018年5月17日
  */
 public class CommonUtils {
+    
+    private final static Logger logger = LoggerFactory.getLogger(IndexController.class);
 
     /**
      * 16进制转utf-8
@@ -13,11 +21,14 @@ public class CommonUtils {
      * @return
      */
     public static String decrypt(String data) {
+        if(StringUtils.isEmpty(data)) {
+            return data;
+        }
         try {
             byte[] decryptFrom = parseHexStr2Byte(data);
             return new String(decryptFrom, "utf-8");
         } catch (Exception e) {
-            e.printStackTrace();
+            logger.error("decrypt error"+e);
         }
         return null;
     }
