@@ -13,7 +13,7 @@ import com.lbcy.controller.IndexController;
  */
 public class CommonUtils {
     
-    private final static Logger logger = LoggerFactory.getLogger(IndexController.class);
+    private final static Logger logger = LoggerFactory.getLogger(CommonUtils.class);
 
     /**
      * 16进制转utf-8
