@@ -165,5 +165,18 @@ public class BlockchainService
 
         return true;
     }
+    
+    /**
+     * 获取mongodb中高度最大的块
+     */
+    public Block getMaxBlockFromDb() {
+        Query query = new Query().with(new Sort(Sort.Direction.DESC, "_id"));
+        Block block = mongoTemplate.findOne(query, Block.class);
+
+        if (null == block) {
+            return null;
+        }
+        return block;
+    }
 
 }

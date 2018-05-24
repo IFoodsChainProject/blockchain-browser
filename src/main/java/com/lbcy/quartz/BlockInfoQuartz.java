@@ -1,6 +1,7 @@
 package com.lbcy.quartz;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.lbcy.model.Block;
 import com.lbcy.service.BlockchainService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -52,8 +53,13 @@ public class BlockInfoQuartz
      * 上一区块时间距离现在超过10分钟就预警
      */
     @Scheduled(cron = "0 0/10 * * * ?")
-    public void monitorBlock()
-    {
-
+    public void monitorBlock() {
+        Block block = blockchainService.getMaxBlockFromDb();
+        Long diffTime = System.currentTimeMillis() - block.getBlockData().getTimestamp();
+        
+        if(diffTime < 0 || diffTime < 600) {
+            logger.error("=========== copy block error ===========");
+            //TODO 发送邮件
+        }
     }
 }
