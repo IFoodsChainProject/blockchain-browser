@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport"  content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0">
+	<meta name="keywords" content="ifood ifoods chain ifoodschain ifoodchain 超级探针 区块链 食品检测 食品安全 食品 superprobe probe">
+	<meta name="description" content="ifood ifoods chain ifoodschain ifoodchain 超级探针 区块链 食品检测 食品安全 食品 superprobe probe">
+	<meta name="author" content="ifooschain-development department">
+	<meta name="robots" content="index,follow">
+	<meta name="renderer" content="webkit">
+
+	<title></title>
+
+	<!-- CSS -->
+	<!--<link href="https://fonts.googleapis.com/css?family=Roboto:400,100,300,500" rel="stylesheet">-->
+	<link href="https://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+	<link href="https://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" rel="stylesheet">
+	<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+	<script src="https://cdn.bootcss.com/Swiper/3.4.2/js/swiper.jquery.min.js"></script>
+	<link rel="stylesheet" href="../css/icomoon.css">
+	<link rel="stylesheet" href="../css/animate.css">
+	<link rel="stylesheet" href="../css/form-elements.css">
+	<link rel="stylesheet" href="../css/style.css">
+	<link rel="stylesheet" href="../css/media-queries.css">
+	<link rel="stylesheet" href="../css/block.css">
+	<link rel="stylesheet" href="../css/index.css">
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+	<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+
+	<!-- Favicon and touch icons -->
+	<link rel="shortcut icon" href="../ico/ifoodsLogo.png">
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../ico/ifoodsLogo.png">
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../ico/ifoodsLogo.png">
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../ico/ifoodsLogo.png">
+	<link rel="apple-touch-icon-precomposed" href="../ico/ifoodsLogo.png">
+
+	<!--angular-translate-->
+	<script src="https://cdn.bootcss.com/angular.js/1.4.6/angular.min.js"></script>
+	<script src="https://cdn.bootcss.com/angular.js/1.4.6/angular-loader.min.js"></script>
+	<script src="https://cdn.bootcss.com/angular.js/1.4.6/angular-sanitize.min.js"></script>
+	<script src="../js/angular-translate.min.js"></script>
+	<script src="../js/angular-loader-static-files.js"></script>
+
+	<script src="https://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+	<script src="https://cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.js"></script>
+	<script src="https://cdn.bootcss.com/jquery-backstretch/2.0.4/jquery.backstretch.min.js"></script>
+	<script src="https://cdn.bootcss.com/retina.js/1.2.0/retina.min.js"></script>
+	<script src="https://cdn.bootcss.com/waypoints/2.0.5/waypoints.min.js"></script>
+	<script src="https://cdn.bootcss.com/Swiper/3.4.2/js/swiper.jquery.min.js"></script>
+	<script src="https://cdn.bootcss.com/wow/1.0.3/wow.min.js"></script>
+
+	<style>
+
+	</style>
+</head>
+
+<body ng-controller="myControlller">
+
+<!-- Top menu -->
+<nav id="navigation" class="navbar navbar-inverse navbar-fixed-top navbar-no-bg" role="navigation">
+	<div class="container">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#top-navbar-1">
+				<span class="sr-only"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="#" onclick="toIndex()"></a>
+		</div>
+
+		<!-- Collect the nav links, forms, and other content for toggling -->
+		<div class="collapse navbar-collapse" id="top-navbar-1">
+			<ul class="nav navbar-nav navbar-right">
+				<li><a class="scroll-link" href="" onclick="toIndex()" ng-bind-html=" 'message.home' | translate"></a></li>
+				<li><a href="javascript:;" ng-click="changeLangSelectIndex()">{{langs[langSelectIndex].name}}</a></li>
+			</ul>
+		</div>
+	</div>
+</nav>
+
+<!-- content -->
+<div class="container">
+	<div style="text-align: left">
+		<h2>区块</h2>
+	</div>
+
+	<div class="span6" style="text-align: left">
+		<ul class="breadcrumb">
+			<li>
+				<a href="../index.html">{{'message.home' | translate}}</a> <span class="divider"></span>
+			</li>
+			<li>
+				<a href="#">{{'block.page-info' | translate}}</a> <span class="divider"></span>
+			</li>
+		</ul>
+	</div>
+
+		<div class="panel panel-default">
+			<div class="panel-body no-padding">
+				<table class="table table-striped no-margin">
+					<thead class="info row-center">
+					<tr>
+						<th>{{'height' | translate}}</th>
+						<th>{{'time' | translate}}</th>
+						<th>{{'txCount' | translate}}</th>
+						<th>{{'hash' | translate}}</th>
+					</tr>
+					</thead>
+					<tbody id="pageBlockId">
+					<!--<tr>
+						<th scope="row">
+							<button type="button" class="btn btn-link">160512</button>
+						</th>
+						<td>2018-05-21 19:6:47</td>
+						<td>1</td>
+						<td class="th-right">
+							<button type="button" class="btn btn-link">404981763834f664957c78b036e2dc447ad3c6bb175d3339f3ca23477f8de47f</button>
+						</td>
+					</tr>
+					<tr>
+						<th scope="row">
+							<button type="button" class="btn btn-link">160511</button>
+						</th>
+						<td>2018-05-21 19:6:47</td>
+						<td>1</td>
+						<td  class="th-right">
+							<button type="button" class="btn btn-link">7ce46c5aa4485b50cc2c09c60e051669f5c761a3f914aee5fe3937f01961ce24</button>
+						</td>
+					</tr>
+					<tr>
+						<th scope="row">
+							<button type="button" class="btn btn-link">160510</button>
+						</th>
+						<td >2018-05-21 19:6:47</td>
+						<td>1</td>
+						<td  class="th-right">
+							<button type="button" class="btn btn-link">8ff5c5ef615594102b66424ab8bd0bdbc657a79692b81d30737eddbd37e209b0</button>
+						</td>
+					</tr>-->
+					</tbody>
+				</table>
+			</div>
+		</div>
+
+
+	<!--<div>
+		<nav aria-label="Page navigation">
+			<ul class="pagination">
+				<li class="disabled">
+					<a href="#" aria-label="Previous">
+						<span aria-hidden="true">&laquo;</span>
+					</a>
+				</li>
+				<li class='active'><a href="#">1</a></li>
+				<li><a href="#">2</a></li>
+				<li><a href="#">3</a></li>
+				<li><a href="#">4</a></li>
+				<li><a href="#">5</a></li>
+				<li>
+					<a href="#" aria-label="Next">
+						<span aria-hidden="true">&raquo;</span>
+					</a>
+				</li>
+			</ul>
+		</nav>
+	</div>-->
+
+	<div class="col-lg-12 clearfix">
+		<div>
+			<ul class="pagination" id='paginationBlockId'></ul>
+		</div>
+	</div>
+
+
+</div>
+
+<!-- Footer -->
+<div ng-include="'./footer.html'"></div>
+
+</body>
+
+<!-- Javascript -->
+<script src="../js/app.js?v=2018052401"></script>
+<script src="../js/jqpaginator.min.js"></script>
+<script src="../js/bootstrap-paginator.min.js"></script>
+<script src="../js/com.js?"></script>
+<script src="../js/block.js?v=2018052401"></script>
+<script src="../js/scripts.js?v=2018052401"></script>
+
+<!--[if lt IE 10]>
+<script src="../js/placeholder.js"></script>
+<![endif]-->
+
+</html>

@@ -1,0 +1,198 @@
+body{
+    font-family: "Microsoft YaHei UI",'Roboto', sans-serif;
+    width: 100vw;
+    height: 100vh;
+    background:#3c3c3c;
+    overflow: hidden;
+}
+.formBox{
+    height: 4.7rem;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    color: #fff;
+    font-size: .16rem;
+    padding: 0;
+}
+.formBox.showQueryList{
+    overflow-y: auto;
+    padding-right: 3px;
+}
+.formBox input{
+    background-color: transparent;
+    border: 1px solid #fff;
+    color: #fff;
+    font-size: .14rem;
+}
+.formBox label{
+    margin-bottom: 10px;
+}
+#submitForm{
+    height: 36px;
+    margin-top: 30px;
+    padding: 0;
+    font-size: .16rem;
+    line-height: 36px;
+    background-color: rgba(0,153,255,.8);
+    border: none;
+}
+#myModal{text-align: center;}
+.modal-dialog{
+    position: absolute;
+    width: 70vw;
+    height: 130px;
+    margin: auto;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+.errorMsg{
+    height: 40px;
+    line-height: 40px;
+    font-size: 16px;
+    color: #f00;
+    text-align: center;
+    width: 100%;
+    position: absolute;
+    bottom:-50px;
+    display: none;
+}
+.modal-footer{border-top: none;}
+.queryBtn{
+    border: none;
+    width: 80px;
+    background-color: rgba(0,153,255,.8);
+    margin: 0;
+}
+.formBox .queryGrid{
+    display: none;
+    color: #fff;
+    text-align: center;
+    background-color: transparent;
+    font-size: .14rem;
+    margin: 0;
+}
+.formBox .userEmail{
+    font-size: .2rem;
+    line-height: .32rem;
+    margin: .12rem 0 .15rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.userEmailQueryItem{border: 1px solid #fff;margin-bottom: .3rem;border-bottom: none;}
+.userEmailQueryItem:last-child{margin-bottom: 0}
+.userEmailQueryItem>div:not(:last-child){line-height: 40px;height: 40px;border-bottom: 1px solid #fff;overflow: hidden;text-overflow: ellipsis;white-space: nowrap}
+.userEmailQueryItem .col-xs-9{border-left: 1px solid #fff;height: 40px;}
+.userEmailQueryItem>div:last-child{
+    height: auto;
+    line-height: 40px;
+    border-bottom: 1px solid #fff;
+}
+.userEmailQueryItem>div:last-child .col-xs-9{
+    word-break: break-all;
+    word-wrap: break-word;
+    height: auto;
+}
+.userEmailQueryItem>div::after{
+    display: block;
+    content: "";
+    clear: both;
+}
+
+.formBox::-webkit-scrollbar {/*滚动条整体样式*/
+    width: 6px;     /*高宽分别对应横竖滚动条的尺寸*/
+    height: 1px;
+}
+.formBox::-webkit-scrollbar-thumb {/*滚动条里面小方块*/
+    border-radius: 15px;
+    -webkit-box-shadow: inset 0 0 2px rgba(147,147,147,0.6);
+    background: #535353;
+}
+.formBox::-webkit-scrollbar-track {/*滚动条里面轨道*/
+    -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+    border-radius: 15px;
+    background: #EDEDED;
+}
+.activityDescription{
+    color: #fff;
+    font-size: 12px;
+    line-height: 18px;
+    padding: 0;
+}
+.activityDescription h1{
+    font-size: 16px;
+    text-align: center;
+    font-weight: 400;
+}
+body.win::after{
+    position: absolute;
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    z-index: 10000;
+}
+
+/* iphone5 */
+@media (max-width:320px){
+    .formBox{height: 5.2rem;}
+    .activityDescription{width: 100vw!important;margin: 0!important;float: none;line-height: 16px!important;padding: 0 8px!important;}
+}
+/* iphone6 */
+@media (min-width:375px){
+    .formBox{height: 4.6rem;}
+    .activityDescription{line-height: 20px!important;}
+}
+/* iphone6-plus */
+@media (min-width:414px){
+    .form-group {margin-bottom: 30px;}
+    #submitForm{margin-top: 40px;}
+    .formBox{height: 5rem;}
+}
+/* iphone5 横屏*/
+@media (min-width:568px){
+
+}
+/* iphone6 横屏*/
+@media (min-width:667px){
+
+}
+/* iphone6-plus 横屏*/
+@media (min-width:736px){
+
+}
+/* 小屏幕（平板，大于等于768px） */
+@media (min-width: 768px) {
+    .formBox{width: 60vw;font-size: .12rem;height: 680px;}
+    .form-group {margin-bottom: 30px;}
+    .formBox input {font-size: .1rem;height: 44px;}
+    #submitForm{margin-top: 50px;height: 48px;line-height: 48px;font-size: .1rem}
+    .modal-dialog{width: 60vw;}
+    .formBox .queryGrid{font-size: 20px}
+    .userEmailQueryItem{font-size: 14px;margin-bottom: 30px;}
+    .formBox .userEmail{font-size: 30px;margin: 20px 0 30px;line-height: 36px;}
+    .activityDescription{font-size: 16px!important;float: none;width: 60vw;margin: 60px auto 0;line-height: 24px!important;}
+    .activityDescription h1{font-size: 24px!important;}
+}
+
+/* 中等屏幕（桌面显示器，大于等于992px） */
+@media (min-width: 992px) {
+    .formBox {height: 680px;font-size: 24px;width: 600px;}
+    .form-group {margin-bottom: 30px;}
+    .formBox input {font-size: 14px;height: 44px;}
+    #submitForm{margin-top: 50px;height: 48px;line-height: 48px;font-size: 20px}
+    .modal-dialog{width: 600px;}
+    .activityDescription{width: 600px!important;margin: 100px auto 0;float: none;line-height: 30px!important;}
+    .activityDescription h1{font-size: 30px!important;}
+}
+
+/* 大屏幕（大桌面显示器，大于等于1200px） */
+@media (min-width: 1200px) {
+
+}

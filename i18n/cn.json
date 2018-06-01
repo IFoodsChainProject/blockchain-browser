@@ -1,0 +1,63 @@
+﻿{
+  "message": {
+    "home": "首页",
+    "about": "关于",
+    "solution": "解决方案",
+    "superprobe": "超级探针",
+    "opendownload": "下载",
+    "community": "社区",
+    "contactus": "联系我们"
+  },
+  "topCont": {
+    "title": "IFOODS区块链浏览器",
+    "inputContent": "请输入区块高度、区块或交易散列值、地址等进行查询"
+  },
+  "index": {
+    "block": "最近区块",
+    "tx": "最近交易",
+    "tx-small": "已忽略记账交易"
+  },
+  "block": {
+    "title": "区块信息",
+    "page-info": "所有区块",
+    "": "",
+    "": ""
+  },
+  "tx": {
+    "to": "发往",
+    "from": "来自",
+    "info": "交易信息",
+    "hash": "交易散列值",
+    "count": "交易次数",
+    "tx": "交易",
+    "tx-list": "所有交易",
+    "tx-type": "交易类型",
+    "data-record": "数据记录",
+    "type-0": "记账交易",
+    "type-1": "资产发行交易",
+    "type-64": "资产注册交易",
+    "type-128": "转账交易",
+    "type-129": "数据记录"
+  },
+  "address": {
+    "address": "地址",
+    "info": "地址详情",
+    "amountOfAssets": "资产数量",
+    "balance": "余额",
+    "addressGeneTime": "地址生成时间",
+    "recentTime": "最近交易时间"
+  },
+  "": "",
+  "MerkleTreeRoots": "默克尔树根值",
+  "height": "高度",
+  "time": "时间",
+  "txCount": "交易数",
+  "hash": "Hash",
+  "more": "更多",
+  "type": "类型",
+  "tx-block": "所在区块",
+  "hashValue": "散列值",
+  "lastHashValue": "上一块散列值",
+  "currentHashValue": "当前块散列值"
+
+}

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport"  content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0">
+	<meta name="keywords" content="ifood ifoods chain ifoodschain ifoodchain 超级探针 区块链 食品检测 食品安全 食品 superprobe probe">
+	<meta name="description" content="ifood ifoods chain ifoodschain ifoodchain 超级探针 区块链 食品检测 食品安全 食品 superprobe probe">
+	<meta name="author" content="ifooschain-development department">
+	<meta name="robots" content="index,follow">
+	<meta name="renderer" content="webkit">
+
+	<title></title>
+
+	<!-- CSS -->
+	<!--<link href="https://fonts.googleapis.com/css?family=Roboto:400,100,300,500" rel="stylesheet">-->
+	<link href="https://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+	<link href="https://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" rel="stylesheet">
+	<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+	<script src="https://cdn.bootcss.com/Swiper/3.4.2/js/swiper.jquery.min.js"></script>
+	<link rel="stylesheet" href="css/icomoon.css">
+	<link rel="stylesheet" href="css/animate.css">
+	<link rel="stylesheet" href="css/form-elements.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/index.css">
+	<link rel="stylesheet" href="css/media-queries.css">
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+
+	<!-- Favicon and touch icons -->
+	<link rel="shortcut icon" href=" ico/ifoodsLogo.png">
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="ico/ifoodsLogo.png">
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="ico/ifoodsLogo.png">
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="ico/ifoodsLogo.png">
+	<link rel="apple-touch-icon-precomposed" href="ico/ifoodsLogo.png">
+
+	<!--angular-translate-->
+	<script src="https://cdn.bootcss.com/angular.js/1.4.6/angular.min.js"></script>
+	<script src="https://cdn.bootcss.com/angular.js/1.4.6/angular-loader.min.js"></script>
+	<script src="https://cdn.bootcss.com/angular.js/1.4.6/angular-sanitize.min.js"></script>
+	<script src="./js/angular-translate.min.js"></script>
+	<script src="./js/angular-loader-static-files.js"></script>
+
+	<script src="https://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+	<script src="https://cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.js"></script>
+	<script src="https://cdn.bootcss.com/jquery-backstretch/2.0.4/jquery.backstretch.min.js"></script>
+	<script src="https://cdn.bootcss.com/retina.js/1.2.0/retina.min.js"></script>
+	<script src="https://cdn.bootcss.com/waypoints/2.0.5/waypoints.min.js"></script>
+	<script src="https://cdn.bootcss.com/Swiper/3.4.2/js/swiper.jquery.min.js"></script>
+	<script src="https://cdn.bootcss.com/wow/1.0.3/wow.min.js"></script>
+
+	<script src=" js/jqpaginator.min.js"></script>
+
+	<style>
+
+	</style>
+</head>
+
+<body ng-controller="myControlller">
+	<!-- Top menu -->
+	<div ng-include="'./html/header.html'"></div>
+
+	<!-- Top content -->
+	<div class="top-content">
+		<div class="inner-bg">
+			<div class="container" >
+				<div class="row">
+					<div class="col-sm-10 col-sm-offset-1 text" >
+						<div ng-if="country != 'cn' ">
+							<h1 class="wow fadeInDownBig" ng-bind-html=" 'topCont.title' | translate "></h1>
+							<div class="description wow fadeInUp input-group input-group-lg" data-wow-duration="1s" data-wow-delay="1s">
+								<input id="searchValueId" data-v-ebecfbba=""  ng-keyup="searchKeyup($event)" placeholder="{{'topCont.inputContent' | translate}}" autocomplete="off" autofocus="autofocus" tabindex="0" autocorrect="off" autocapitalize="off" spellcheck="false" class="form-control search clearable"/>
+								<span class="input-group-btn">
+                                    <button type="submit" class="btn btn-default" ng-click="searchOnclick()" ><span class="glyphicon glyphicon-search"></span></button>
+                                </span>
+							</div>
+						</div>
+
+						<div class="userRecruitBox wow fadeIn" ng-class="{'cn' :'show'}[country]" data-wow-duration="1s" data-wow-delay=".6s">
+							<div class="top-big-link wow bounceIn" data-wow-duration="1s" data-wow-delay=".5s"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- content -->
+	<div class="container-fluid">
+		<h4></h4>
+		<div class="row">
+			<div class="col-sm-6">
+			<div class="panel panel-default">
+				<div class="panel-heading" style="text-align: left;font-size: large">
+					{{'index.block' | translate}}
+					<div style="float: right;">
+						<a class="btn btn-default" href="html/block.html" role="button">{{'more' | translate}}</a>
+					</div>
+				</div>
+				<div class="panel-body no-padding">
+					<table class="table table-striped no-margin">
+						<thead class="thead-center">
+						<tr>
+							<th>{{'height' | translate}}</th>
+							<th>{{'time' | translate}}</th>
+							<th>{{'txCount' | translate}}</th>
+							<th>{{'hash' | translate}}</th>
+						</tr>
+						</thead>
+						<tbody id="indexBlockId" class="row-center">
+							<tr>
+								<td scope="row">
+								</td>
+								<td></td>
+								<td></td>
+								<td class="th-right">
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			</div>
+
+			<div class="col-sm-6">
+				<div class="panel panel-default">
+					<!-- Default panel contents -->
+					<div class="panel-heading" style="text-align: left;">
+						<span style="font-size: large;">{{'index.tx' | translate}}</span><small>({{'index.tx-small' | translate}})</small>
+						<div style="float: right;">
+							<a class="btn btn-default" href="./html/tx.html" role="button">{{'more' | translate}}</a>
+						</div>
+					</div>
+					<div class="panel-body no-padding">
+						<table class="table table-striped no-margin">
+							<thead class="thead-center">
+							<tr>
+								<th>{{'type' | translate}}</th>
+								<th>{{'height' | translate}}</th>
+								<th>{{'time' | translate}}</th>
+							</tr>
+							</thead>
+							<tbody id="indexTxId" class="row-center">
+							<tr>
+								<th scope="row">
+								</th>
+								<td>
+								</td>
+								<td></td>
+							</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Footer -->
+	<div ng-include="'./html/footer.html'"></div>
+
+</body>
+
+<!-- Javascript -->
+<script src=" js/app.js?v=2018052401"></script>
+<script src=" js/jqpaginator.min.js"></script>
+<script src=" js/com.js?v=2018052901"></script>
+<script src=" js/index.js?v=2018052901"></script>
+<script src=" js/scripts.js?v=2018052401"></script>
+
+<!--[if lt IE 10]>
+<script src=" js/placeholder.js"></script>
+<![endif]-->
+
+</html>

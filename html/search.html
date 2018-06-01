@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport"  content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0">
+	<meta name="keywords" content="ifood ifoods chain ifoodschain ifoodchain 超级探针 区块链 食品检测 食品安全 食品 superprobe probe">
+	<meta name="description" content="ifood ifoods chain ifoodschain ifoodchain 超级探针 区块链 食品检测 食品安全 食品 superprobe probe">
+	<meta name="author" content="ifooschain-development department">
+	<meta name="robots" content="index,follow">
+	<meta name="renderer" content="webkit">
+
+	<title></title>
+
+	<!-- CSS -->
+	<!--<link href="https://fonts.googleapis.com/css?family=Roboto:400,100,300,500" rel="stylesheet">-->
+	<link href="https://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+	<link href="https://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" rel="stylesheet">
+	<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+	<script src="https://cdn.bootcss.com/Swiper/3.4.2/js/swiper.jquery.min.js"></script>
+	<link rel="stylesheet" href="../css/icomoon.css">
+	<link rel="stylesheet" href="../css/animate.css">
+	<link rel="stylesheet" href="../css/form-elements.css">
+	<link rel="stylesheet" href="../css/style.css">
+	<link rel="stylesheet" href="../css/media-queries.css">
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+	<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+
+	<!-- Favicon and touch icons -->
+	<link rel="shortcut icon" href="../ico/ifoodsLogo.png">
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../ico/ifoodsLogo.png">
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../ico/ifoodsLogo.png">
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../ico/ifoodsLogo.png">
+	<link rel="apple-touch-icon-precomposed" href="../ico/ifoodsLogo.png">
+
+	<!--angular-translate-->
+	<script src="https://cdn.bootcss.com/angular.js/1.4.6/angular.min.js"></script>
+	<script src="https://cdn.bootcss.com/angular.js/1.4.6/angular-loader.min.js"></script>
+	<script src="https://cdn.bootcss.com/angular.js/1.4.6/angular-sanitize.min.js"></script>
+	<script src="../js/angular-translate.min.js"></script>
+	<script src="../js/angular-loader-static-files.js"></script>
+
+	<script src="https://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+	<script src="https://cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.js"></script>
+	<script src="https://cdn.bootcss.com/jquery-backstretch/2.0.4/jquery.backstretch.min.js"></script>
+	<script src="https://cdn.bootcss.com/retina.js/1.2.0/retina.min.js"></script>
+	<script src="https://cdn.bootcss.com/waypoints/2.0.5/waypoints.min.js"></script>
+	<script src="https://cdn.bootcss.com/Swiper/3.4.2/js/swiper.jquery.min.js"></script>
+	<script src="https://cdn.bootcss.com/wow/1.0.3/wow.min.js"></script>
+
+	<style>
+
+	</style>
+</head>
+
+<body ng-controller="search-Controller">
+
+<!-- Top menu -->
+<div ng-include="'./header.html'"></div>
+
+<!-- content -->
+<!-- block/{height} -->
+<div class="container" ng-if="searchInfo.block && searchInfo.block != null">
+	<div style="text-align: left">
+		<h2>{{'block.title' | translate}}</h2>
+	</div>
+
+	<div class="span6" style="text-align: left">
+		<ul class="breadcrumb">
+			<li>
+				<a href="../index.html">{{'message.home' | translate}}</a> <span class="divider"></span>
+			</li>
+			<li>
+				<a href="./block.html">{{'block.page-info' | translate}}</a> <span class="divider"></span>
+			</li>
+			<li class="active">{{'height' | translate}}: {{searchInfo.block.id}}</li>
+		</ul>
+	</div>
+
+	<div>
+		<div class="panel-body no-padding">
+			<table class="table table-striped no-margin">
+				<tbody id="blockInfoId">
+				<!-- blockInfoId -->
+				<tr>
+					<th class="th-right">{{'height' | translate}}:</th>
+					<th class="th-left">{{searchInfo.block.id}}</th>
+				</tr>
+				<tr>
+					<th class="th-right">{{'time' | translate}}:</th>
+					<th class="th-left">{{searchInfo.block.blockData.timestamp*1000 | date:'yyyy-MM-dd hh:mm:ss'}}</th>
+				</tr>
+				<tr>
+					<th class="th-right">MerkleTreeRoots:</th>
+					<th class="th-left">{{searchInfo.block.blockData.transactionsRoot}}</th>
+				</tr>
+				<tr>
+					<th class="th-right">{{'lastHashValue' | translate}}:</th>
+					<th class="th-left">{{searchInfo.block.blockData.prevBlockHash}}</th>
+				</tr>
+				<tr>
+					<th class="th-right">{{'currentHashValue' | translate}}:</th>
+					<th class="th-left">{{searchInfo.block.blockData.hash}}</th>
+				</tr>
+				<tr>
+					<th class="th-right">{{'txCount' | translate}}:</th>
+					<th class="th-left">{{searchInfo.block.transactions.length}}</th>
+				</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+	<!-- transaction detail -->
+	<div class="panel panel-default">
+		<!-- Default panel contents -->
+		<div class="panel-heading" style="text-align: left;">
+			<span style="font-size: medium;">{{'tx.info' | translate}}</span><small></small>
+		</div>
+		<div class="panel-body no-padding" >
+			<table class="table table-striped no-margin table-hover table-bordered" ng-repeat="tx in searchInfo.block.transactions">
+				<thead>
+				<tr>
+					<td class="th-left">
+						{{'type' | translate}}
+					</td>
+					<th scope="row" class="th-right"  colspan="2">
+						<button type="button" value="{{tx.txType}}" class="btn" txType==0
+								ng-class="{'btn-default':tx.txType==0, 'btn-primary':tx.txType==1, 'btn-success':tx.txType==64, 'btn-info':tx.txType==128, 'btn-warning':tx.txType==129}">
+							{{tx.typeName}}
+						</button>
+					</th>
+				</tr>
+				</thead>
+				<tbody>
+
+				<div ng-if="tx.utxoInputs.length>0">
+					<tr ng-repeat="txUtxoInputs in tx.utxoInputs">
+						<td class="th-left">
+							{{'tx.from' | translate}}
+						</td>
+						<th scope="row" class="th-right">
+							{{txUtxoInputs.output.address}}
+						</th>
+						<th scope="row" class="th-right">
+							-{{txUtxoInputs.output.value}}
+						</th>
+					</tr>
+				</div>
+
+				<div ng-if="tx.outputs.length>0">
+					<tr ng-repeat="txOutputs in tx.outputs">
+						<td class="th-left">
+							{{'tx.to' | translate}}
+						</td>
+						<th scope="row" class="th-right">
+							{{txOutputs.address}}
+						</th>
+						<th scope="row" class="th-right">
+							+{{txOutputs.value}}
+						</th>
+					</tr>
+				</div>
+
+				<tr ng-if="tx.payload != null && tx.payload.recordType != null">
+					<td class="th-left data-th-title">
+						{{'tx.data-record' | translate}}
+					</td>
+					<th scope="row" class="th-right data-th-content" colspan="2">
+						{{tx.payload.decryptData}}
+					</th>
+				</tr>
+
+				<div>
+					<tr>
+						<td class="th-left">
+							{{'time' | translate}}
+						</td>
+						<th scope="row" class="th-right"  colspan="2">
+							{{tx.timestamp*1000 | date:'yyyy-MM-dd hh:mm:ss'}}
+						</th>
+					</tr>
+				</div>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+<!-- tx/{hash} -->
+<div class="container" ng-if="searchInfo.tx && searchInfo.tx != null">
+	<div class="span6" style="text-align: left">
+		<ul class="breadcrumb">
+			<li>
+				<a href="../index.html"><span class="divider">{{'message.home' | translate}}</span></a>
+			</li>
+			<li class="active">
+				<a href="./tx.html"><span class="divider">{{'tx.tx-list' | translate}}</span></a>
+			</li>
+			<li class="active">
+				<span class="divider">{{'tx.tx' | translate}}</span>
+			</li>
+		</ul>
+	</div>
+
+	<div>
+		<div class="panel-body no-padding">
+			<table class="table table-striped no-margin">
+
+				<tbody>
+				<tr>
+					<th class="th-right col-xs-3" style='vertical-align: middle;text-align: right;'>{{'tx.tx-type' | translate}} : </th>
+					<th class="th-left col-md-4" style='width:40%;vertical-align: middle;text-align: left;'>{{searchInfo.tx.typeName}}</th>
+				</tr>
+				<tr>
+					<th class="th-right col-xs-3" style='width:10%;vertical-align: middle;text-align: right;'>{{'hashValue' | translate}} : </th>
+					<th class="th-left col-md-4"  style='width:40%;vertical-align: middle;text-align: left;'>{{searchInfo.tx.hash}}</th>
+				</tr>
+				<tr>
+					<th class="th-right col-xs-3" style='vertical-align: middle;text-align: right;'>{{'time' | translate}} : </th>
+					<th class="th-left col-md-4"  style='vertical-align: middle;text-align: left;'>{{searchInfo.tx.timestamp*1000 | date:'yyyy-MM-dd hh:mm:ss'}}</th>
+				</tr>
+				<tr>
+					<th class="th-right col-xs-3" style='vertical-align: middle;text-align: right;'>{{'tx-block' | translate}} : </th>
+					<th class="th-left col-md-4" style='width:40%;vertical-align: middle;text-align: left;'>{{searchInfo.tx.blockId}}</th>
+				</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+	<!-- transaction detail -->
+	<div class="panel panel-default">
+		<!-- Default panel contents -->
+		<div class="panel-heading" style="text-align: left;">
+			<span style="font-size: medium;">{{'tx.info' | translate}}</span><small></small>
+		</div>
+		<div class="panel-body no-padding">
+			<table class="table table-striped no-margin table-hover table-bordered">
+				<tbody>
+				<!-- from -->
+				<div ng-if="searchInfo.tx.utxoInputs.length>0">
+					<tr ng-repeat="txUtxoInputs in searchInfo.tx.utxoInputs">
+						<td class="th-left">
+							{{'tx.from' | translate}}
+						</td>
+						<th scope="row" class="th-right">
+							{{txUtxoInputs.output.address}}
+						</th>
+						<th scope="row" class="th-right">
+							-{{txUtxoInputs.output.value}}
+						</th>
+					</tr>
+				</div>
+
+				<!-- to -->
+				<div ng-if="searchInfo.tx.outputs.length>0">
+					<tr ng-repeat="txOutputs in searchInfo.tx.outputs">
+						<td class="th-left">
+							{{'tx.to' | translate}}
+						</td>
+						<th scope="row" class="th-right">
+							{{txOutputs.address}}
+						</th>
+						<th scope="row" class="th-right">
+							+{{txOutputs.value}}
+						</th>
+					</tr>
+				</div>
+
+				<!-- data -->
+				<tr ng-if="searchInfo.tx.payload != null && searchInfo.tx.payload.recordType != null">
+					<th scope="row" class="th-left">
+						{{'tx.data-record' | translate}}
+					</th>
+					<th scope="row" class="th-right" colspan="2">
+						{{searchInfo.tx.payload.decryptData}}
+					</th>
+				</tr>
+				<!-- time -->
+				<tr>
+					<th class="th-left">
+						{{'time' | translate}}
+					</th>
+					<th scope="row" class="th-right" colspan="2">
+						{{searchInfo.tx.timestamp*1000 | date:'yyyy-MM-dd hh:mm:ss'}}
+					</th>
+				</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+<!-- address/{id} -->
+<div class="container"  ng-if="searchInfo.address && searchInfo.address != null">
+	<div style="text-align: left">
+		<h2>{{'address.info' | translate}}</h2>
+	</div>
+
+	<div class="span6" style="text-align: left">
+		<ul class="breadcrumb">
+			<li>
+				<a href="../index.html">{{'message.home' | translate}}</a><span class="divider"></span>
+			</li>
+			<li class="active">{{'address.address' | translate}}</li>
+		</ul>
+	</div>
+
+	<div>
+		<div class="panel-body no-padding">
+			<table class="table table-striped no-margin">
+				<tbody>
+				<tr>
+					<th class="th-right col-xs-3" style='vertical-align: middle;text-align: right;'>{{'address.address' | translate}}: </th>
+					<th class="th-left col-md-4" style='width:40%;vertical-align: middle;text-align: left;'>{{searchInfo.address.id}}</th>
+				</tr>
+				<tr>
+					<th class="th-right col-xs-3" style='width:10%;vertical-align: middle;text-align: right;'>{{'address.amountOfAssets' | translate}}: </th>
+					<th class="th-left col-md-4"  style='width:40%;vertical-align: middle;text-align: left;'>{{searchInfo.address.assets.length}}类</th>
+				</tr>
+				<tr ng-repeat="asset in searchInfo.address.assets">
+					<th class="th-right col-xs-3" style='vertical-align: middle;text-align: right;'>{{'address.balance' | translate}}: </th>
+					<th class="th-left col-md-4"  style='vertical-align: middle;text-align: left;'>{{asset.assetValue}} {{asset.assetName}}</th>
+				</tr>
+				<tr>
+					<th class="th-right col-xs-3" style='vertical-align: middle;text-align: right;'>{{'address.addressGeneTime' | translate}}: </th>
+					<th class="th-left col-md-4"  style='vertical-align: middle;text-align: left;'>{{searchInfo.address.createTime*1000 | date:'yyyy-MM-dd hh:mm:ss'}}</th>
+				</tr>
+				<tr>
+					<th class="th-right col-xs-3" style='vertical-align: middle;text-align: right;'>{{'address.recentTime' | translate}}: </th>
+					<th class="th-left col-md-4"  style='vertical-align: middle;text-align: left;'>{{searchInfo.address.lastTime*1000 | date:'yyyy-MM-dd hh:mm:ss'}}</th>
+				</tr>
+				<tr>
+					<th class="th-right col-xs-3" style='vertical-align: middle;text-align: right;'>{{'tx.count' | translate}}: </th>
+					<th class="th-left col-md-4"  style='vertical-align: middle;text-align: left;'>{{searchInfo.address.transactions.length}}</th>
+				</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+	<!-- transaction detail -->
+	<div class="panel panel-default">
+		<!-- Default panel contents -->
+		<div class="panel-heading" style="text-align: left;">
+			<span style="font-size: medium;">{{'tx.info' | translate}}</span><small></small>
+		</div>
+
+		<div class="panel-body no-padding">
+			<div ng-if="searchInfo.address.transactions != null && searchInfo.address.transactions.length>0">
+				<table class="table table-striped no-margin table-hover table-bordered" ng-repeat="txInfo in searchInfo.address.transactions">
+					<!-- type -->
+					<thead>
+					<tr>
+						<td class="th-left">
+							{{'type' | translate}}
+						</td>
+						<th scope="row" class="th-right"  colspan="2">
+							<button type="button" value="{{txInfo.txType}}" class="btn" ng-click="getTxByHash(txInfo.hash)"
+									ng-class="{'btn-default':txInfo.txType==0, 'btn-primary':txInfo.txType==1, 'btn-success':txInfo.txType==64, 'btn-info':txInfo.txType==128, 'btn-warning':txInfo.txType==129}">
+								{{txInfo.typeName}}
+							</button>
+						</th>
+					</tr>
+					</thead>
+					<tbody>
+					<!-- from -->
+					<div ng-if="txInfo.utxoInputs.length>0">
+						<tr ng-repeat="txUtxoInputs in txInfo.utxoInputs">
+							<td class="th-left">
+								{{'tx.from' | translate}}
+							</td>
+							<th scope="row" class="th-right">
+								{{txUtxoInputs.output.address}}
+							</th>
+							<th scope="row" class="th-right">
+								-{{txUtxoInputs.output.value}}
+							</th>
+						</tr>
+					</div>
+
+					<!-- to -->
+					<div ng-if="txInfo.outputs.length>0">
+						<tr ng-repeat="txOutputs in txInfo.outputs">
+							<td class="th-left">
+								{{'tx.to' | translate}}
+							</td>
+							<th scope="row" class="th-right">
+								{{txOutputs.address}}
+							</th>
+							<th scope="row" class="th-right">
+								+{{txOutputs.value}}
+							</th>
+						</tr>
+					</div>
+
+					<!-- data -->
+					<tr ng-if="txInfo.payload != null && txInfo.payload.recordType != null">
+						<th scope="row" class="th-left">
+							{{'tx.data-record' | translate}}
+						</th>
+						<th scope="row" class="th-right" colspan="2">
+							{{txInfo.payload.decryptData}}
+						</th>
+					</tr>
+					<!-- time -->
+					<tr>
+						<th class="th-left">
+							{{'time' | translate}}
+						</th>
+						<th scope="row" class="th-right" colspan="2">
+							{{txInfo.timestamp*1000 | date:'yyyy-MM-dd hh:mm:ss'}}
+						</th>
+					</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<!-- Footer -->
+<div ng-include="'./footer.html'"></div>
+
+</body>
+
+<!-- Javascript -->
+<script src="../js/app.js?v=2018052401"></script>
+<script src="../js/search.js?v=2018052401"></script>
+<script src="../js/com.js?v=2018052401"></script>
+<script src="../js/scripts.js?v=2018052401"></script>
+
+<!--[if lt IE 10]>
+<script src="../js/placeholder.js"></script>
+<![endif]-->
+
+</html>

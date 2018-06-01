@@ -1,0 +1,19 @@
+.row-center {
+	text-align: center;
+}
+
+.row-center tr {
+	text-align: center;
+}
+
+.row-center tr th{
+	text-align: center;
+}
+
+.thead-center th {
+	text-align: center;
+}
+
+.row-right {
+	text-align: right;
+}

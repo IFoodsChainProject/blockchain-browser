@@ -1,0 +1,74 @@
+.PortBody{
+    height: 100vh;
+    width: 100vw;
+    box-sizing: border-box;
+}
+.PortDiv{
+    width: 100%;
+    height: 100%;
+    /*background-color: #999;*/
+    background-color: #ccc;
+    text-align: center;
+    position: absolute;
+    z-index: 999;
+    left: 0;
+    right: 0;
+}
+.PortDiv>div{
+    position: absolute;
+    width: 800px;
+    height: 320px;
+    left: 50%;
+    top:50%;
+    transform: translate(-50%,-65%);
+    z-index: 1000;
+}
+.PortDiv a{
+    display: block;
+    background-color: #fff;
+    font-size: 20px;
+    color: #555;
+    height: 100%;
+    padding-top: 170px;
+    text-decoration: none;
+    background-repeat: no-repeat;
+    background-position: center top 30px;
+    background-size: 100px 100px;
+}
+.PortDiv a:hover{
+    box-shadow: 0 10px 20px rgba(14,5,10,.7);
+}
+.newRequest{
+    background-image: url("../img/kyc/kcyPort-apply.png");
+}
+.query{
+    background-image: url("../img/kyc/kcyPort-query.png");
+}
+
+.langBox{
+    width: 200px;
+    height: 90px;
+    line-height:30px;
+    text-align: center;
+    font-size: 14px;
+    margin: 0 auto 10px;
+}
+.langBox>div{
+    background-color: #fff;
+}
+.langShow{
+    background: url("../html/kyc/userInfoSubmit/images/icon-down.png") no-repeat right 10px center;
+    background-size: 16px 16px;
+}
+.PortDiv .row{
+    height: 220px;
+}
+.langItems{display: none;}
+.langItems>div{
+    cursor: pointer;
+}
+.langItems>div:first-child{border-top: 1px solid #666;}
+.langItems>div:hover{
+    background-color: #666;
+    color: #fff;
+}

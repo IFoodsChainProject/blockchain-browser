@@ -6,3 +6,7 @@
 .settings/
 
 /build/
+
+test.html
+
+.idea

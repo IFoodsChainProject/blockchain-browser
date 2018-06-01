@@ -1,0 +1,62 @@
+{
+  "message": {
+    "home": "Home",
+    "about": "About",
+    "solution": "Solution",
+    "superprobe": "Super Probe",
+    "opendownload": "Download",
+    "community": "Community",
+    "contactus": "Contact Us"
+  },
+  "topCont": {
+    "title": "IFOODS Blockchain Browser",
+    "inputContent": "Please enter block height, block or transaction hash value, address, etc. to query"
+  },
+  "index": {
+    "block": "Recent block",
+    "tx": "Last Transaction",
+    "tx-small": "Ignored Accounting Transactions"
+  },
+  "block": {
+    "title": "Block Info",
+    "page-info": "All Blocks",
+    "": "",
+    "": ""
+  },
+  "tx": {
+    "to": "Send to",
+    "from": "From",
+    "info": "Transaction Information",
+    "hash": "Transaction Hash Value",
+    "count": "Number Of Transactions",
+    "tx": "Transaction",
+    "tx-list": "All Transactions",
+    "tx-type": "Transaction Type",
+    "data-record": "Data Record",
+    "type-0": "Accounting Transactions",
+    "type-1": "Assets Issue Transaction",
+    "type-64": "Asset Registration Transaction",
+    "type-128": "Transfer Transaction",
+    "type-129": "Data record"
+  },
+  "address": {
+    "address": "Address",
+    "info": "Address Details",
+    "amountOfAssets": "Number of assets",
+    "balance": "Balance",
+    "addressGeneTime": "Address Generation Time",
+    "recentTime": "Last transaction time"
+  },
+  "": "",
+  "MerkleTreeRoots": "Merkel Roots",
+  "height": "Height",
+  "time": "Time",
+  "txCount": "Number of transactions",
+  "hash": "Hash",
+  "more": "More",
+  "type": "Type",
+  "tx-block": "In the block",
+  "hashValue": "Hash Value",
+  "lastHashValue": "Last Hash Value",
+  "currentHashValue": "The current block hash value"
+}

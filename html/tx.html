@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport"  content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0">
+	<meta name="keywords" content="ifood ifoods chain ifoodschain ifoodchain 超级探针 区块链 食品检测 食品安全 食品 superprobe probe">
+	<meta name="description" content="ifood ifoods chain ifoodschain ifoodchain 超级探针 区块链 食品检测 食品安全 食品 superprobe probe">
+	<meta name="author" content="ifooschain-development department">
+	<meta name="robots" content="index,follow">
+	<meta name="renderer" content="webkit">
+
+	<title></title>
+
+	<!-- CSS -->
+	<!--<link href="https://fonts.googleapis.com/css?family=Roboto:400,100,300,500" rel="stylesheet">-->
+	<link href="https://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+	<link href="https://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" rel="stylesheet">
+	<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+	<script src="https://cdn.bootcss.com/Swiper/3.4.2/js/swiper.jquery.min.js"></script>
+	<link rel="stylesheet" href="../css/icomoon.css">
+	<link rel="stylesheet" href="../css/animate.css">
+	<link rel="stylesheet" href="../css/form-elements.css">
+	<link rel="stylesheet" href="../css/style.css">
+	<link rel="stylesheet" href="../css/media-queries.css">
+	<link rel="stylesheet" href="../css/block.css">
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+	<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+
+	<!-- Favicon and touch icons -->
+	<link rel="shortcut icon" href="../ico/ifoodsLogo.png">
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../ico/ifoodsLogo.png">
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../ico/ifoodsLogo.png">
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../ico/ifoodsLogo.png">
+	<link rel="apple-touch-icon-precomposed" href="../ico/ifoodsLogo.png">
+
+	<!--angular-translate-->
+	<script src="https://cdn.bootcss.com/angular.js/1.4.6/angular.min.js"></script>
+	<script src="https://cdn.bootcss.com/angular.js/1.4.6/angular-loader.min.js"></script>
+	<script src="https://cdn.bootcss.com/angular.js/1.4.6/angular-sanitize.min.js"></script>
+	<script src="../js/angular-translate.min.js"></script>
+	<script src="../js/angular-loader-static-files.js"></script>
+
+	<script src="https://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+	<script src="https://cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.js"></script>
+	<script src="https://cdn.bootcss.com/jquery-backstretch/2.0.4/jquery.backstretch.min.js"></script>
+	<script src="https://cdn.bootcss.com/retina.js/1.2.0/retina.min.js"></script>
+	<script src="https://cdn.bootcss.com/waypoints/2.0.5/waypoints.min.js"></script>
+	<script src="https://cdn.bootcss.com/Swiper/3.4.2/js/swiper.jquery.min.js"></script>
+	<script src="https://cdn.bootcss.com/wow/1.0.3/wow.min.js"></script>
+
+	<style>
+
+	</style>
+</head>
+
+<body ng-controller="tx-Controller">
+
+<!-- Top menu -->
+<div ng-include="'./header.html'"></div>
+
+<!-- content -->
+<div class="container">
+	<div style="text-align: left">
+		<h3>{{'tx.tx-list' | translate}}</h3>
+	</div>
+
+	<div class="span6" style="text-align: left">
+		<ul class="breadcrumb">
+			<li>
+				<a href="../index.html">{{'message.home' | translate}}</a> <span class="divider"></span>
+			</li>
+			<li>
+				<span class="divider">{{'tx.tx-list' | translate}}</span>
+			</li>
+		</ul>
+	</div>
+
+	<div class="panel panel-default">
+		<div class="panel-body no-padding">
+			<table class="table table-striped no-margin table-hover">
+				<thead class="info">
+				<tr>
+					<th style='width:25%;vertical-align: middle;text-align: center;' scope="row">{{'type' | translate}}</th>
+					<th style='width:50%;vertical-align: middle;text-align: center;'>{{'tx.hash' | translate}}</th>
+					<!--<th style='width:25%;vertical-align: middle;text-align: center;'>交易入账地址</th>-->
+					<th  class="hidden-xs" style='width:5%;vertical-align: middle;text-align: center;'>{{'height' | translate}}</th>
+					<th  style='width:20%;vertical-align: middle;text-align: center;'>{{'time' | translate}}</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr ng-repeat="txSimple in txList">
+					<td style='width:25%;vertical-align: middle;text-align: center;' scope="row">
+						<button type="button" value="{{txSimple.txType}}" class="btn" ng-click="getTxByHash(txSimple.hash)"
+								ng-class="{'btn-default':txSimple.txType==0, 'btn-primary':txSimple.txType==1, 'btn-success':txSimple.txType==64, 'btn-info':txSimple.txType==128, 'btn-warning':txSimple.txType==129}">
+							{{txSimple.typeName}}
+						</button>
+					</td>
+					<td style='width:50%;vertical-align: middle;text-align: center;'>
+						<button type="button" class="btn btn-link" ng-click="getTxByHash(txSimple.hash)">
+							{{txSimple.hash}}
+						</button>
+					</td>
+					<td  class="hidden-xs" style='width:5%;vertical-align: middle;text-align: center;'>
+						<button type="button" class="btn btn-link">
+							<a href="./block-info.html?height={{txSimple.blockId}}">
+								{{txSimple.blockId}}
+							</a>
+						</button>
+					</td>
+					<td  style='width:20%;vertical-align: middle;text-align: center;'>
+						{{txSimple.timestamp*1000 | date:'yyyy-MM-dd hh:mm:ss'}}
+					</td>
+				</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+
+	<div class="col-lg-12 clearfix">
+		<div>
+			<ul class="pagination" id='paginationTxId'></ul>
+		</div>
+	</div>
+
+
+</div>
+
+
+
+<!-- Footer -->
+<div ng-include="'./footer.html'"></div>
+
+</body>
+
+<!-- Javascript -->
+<script src="../js/app.js?v=2018052401"></script>
+<script src="../js/jqpaginator.min.js"></script>
+<script src="../js/bootstrap-paginator.min.js"></script>
+<script src="../js/com.js?v=2018052401"></script>
+<script src="../js/tx.js?v=2018052401"></script>
+<script src="../js/scripts.js?v=2018052401"></script>
+
+<!--[if lt IE 10]>
+<script src="../js/placeholder.js"></script>
+<![endif]-->
+
+</html>
