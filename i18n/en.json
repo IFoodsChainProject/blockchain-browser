@@ -18,10 +18,9 @@
     "tx-small": "Ignored Accounting Transactions"
   },
   "block": {
+    "block": "Block",
     "title": "Block Info",
-    "page-info": "All Blocks",
-    "": "",
-    "": ""
+    "page-info": "All Blocks"
   },
   "tx": {
     "to": "Send to",
@@ -47,7 +46,6 @@
     "addressGeneTime": "Address Generation Time",
     "recentTime": "Last transaction time"
   },
-  "": "",
   "MerkleTreeRoots": "Merkel Roots",
   "height": "Height",
   "time": "Time",

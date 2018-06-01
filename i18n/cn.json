@@ -18,10 +18,9 @@
     "tx-small": "已忽略记账交易"
   },
   "block": {
+    "block": "区块",
     "title": "区块信息",
-    "page-info": "所有区块",
-    "": "",
-    "": ""
+    "page-info": "所有区块"
   },
   "tx": {
     "to": "发往",
@@ -47,7 +46,6 @@
     "addressGeneTime": "地址生成时间",
     "recentTime": "最近交易时间"
   },
-  "": "",
   "MerkleTreeRoots": "默克尔树根值",
   "height": "高度",
   "time": "时间",

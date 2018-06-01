@@ -61,35 +61,15 @@
 	</style>
 </head>
 
-<body ng-controller="myControlller">
+<body ng-controller="block-Controller">
 
 <!-- Top menu -->
-<nav id="navigation" class="navbar navbar-inverse navbar-fixed-top navbar-no-bg" role="navigation">
-	<div class="container">
-		<div class="navbar-header">
-			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#top-navbar-1">
-				<span class="sr-only"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-			</button>
-			<a class="navbar-brand" href="#" onclick="toIndex()"></a>
-		</div>
-
-		<!-- Collect the nav links, forms, and other content for toggling -->
-		<div class="collapse navbar-collapse" id="top-navbar-1">
-			<ul class="nav navbar-nav navbar-right">
-				<li><a class="scroll-link" href="" onclick="toIndex()" ng-bind-html=" 'message.home' | translate"></a></li>
-				<li><a href="javascript:;" ng-click="changeLangSelectIndex()">{{langs[langSelectIndex].name}}</a></li>
-			</ul>
-		</div>
-	</div>
-</nav>
+<div ng-include="'./header.html'"></div>
 
 <!-- content -->
 <div class="container">
 	<div style="text-align: left">
-		<h2>区块</h2>
+		<h2>{{'block.block' | translate}}</h2>
 	</div>
 
 	<div class="span6" style="text-align: left">
@@ -115,36 +95,18 @@
 					</tr>
 					</thead>
 					<tbody id="pageBlockId">
-					<!--<tr>
+					<tr  ng-repeat="blockpage in blockList">
 						<th scope="row">
-							<button type="button" class="btn btn-link">160512</button>
+							<button type="button" class="btn btn-link" ng-click="getBlockByHeight(blockpage.height)">{{blockpage.height}}</button>
 						</th>
-						<td>2018-05-21 19:6:47</td>
-						<td>1</td>
+						<td>
+							{{blockpage.timestamp*1000 | date:'yyyy-MM-dd hh:mm:ss'}}
+						</td>
+						<td>{{blockpage.transactionNum}}</td>
 						<td class="th-right">
-							<button type="button" class="btn btn-link">404981763834f664957c78b036e2dc447ad3c6bb175d3339f3ca23477f8de47f</button>
+							<button type="button" class="btn btn-link"  ng-click="getBlockByHeight(blockpage.height)">{{blockpage.hash}}</button>
 						</td>
 					</tr>
-					<tr>
-						<th scope="row">
-							<button type="button" class="btn btn-link">160511</button>
-						</th>
-						<td>2018-05-21 19:6:47</td>
-						<td>1</td>
-						<td  class="th-right">
-							<button type="button" class="btn btn-link">7ce46c5aa4485b50cc2c09c60e051669f5c761a3f914aee5fe3937f01961ce24</button>
-						</td>
-					</tr>
-					<tr>
-						<th scope="row">
-							<button type="button" class="btn btn-link">160510</button>
-						</th>
-						<td >2018-05-21 19:6:47</td>
-						<td>1</td>
-						<td  class="th-right">
-							<button type="button" class="btn btn-link">8ff5c5ef615594102b66424ab8bd0bdbc657a79692b81d30737eddbd37e209b0</button>
-						</td>
-					</tr>-->
 					</tbody>
 				</table>
 			</div>

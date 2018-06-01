@@ -1,4 +1,4 @@
-var projectName = "ifoods-explorer-home"
+var projectName = "blockchain_browser"
 
 /**
  * 时间戳转换
