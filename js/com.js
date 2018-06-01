@@ -1,4 +1,4 @@
-var projectName = "blockchain_browser"
+var projectName = ""
 
 /**
  * 时间戳转换
@@ -21,7 +21,7 @@ function timestampToTime(timestamp) {
  * @param height
  */
 function heightDetail(height) {
-	window.location.href='/'+projectName+'/html/block-info.html?height=' + height;
+	window.location.href = '/html/block-info.html?height=' + height;
 }
 
 
@@ -41,10 +41,6 @@ function getQueryString(name) {
 	return paramValue == "" && (paramValue = null), paramValue
 }
 
-function txOnclickByhash(txhash) {
-	window.location.href='/'+projectName+'/html/tx-info.html?hash=' + txhash;
-}
-
-function toIndex() {
-	window.location.href='/'+projectName+'/index.html';
-}
+/*function txOnclickByhash(txhash) {
+	window.location.href = '/html/tx-info.html?hash=' + txhash;
+}*/

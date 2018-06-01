@@ -63,8 +63,31 @@
 </head>
 
 <body ng-controller="myControlller">
-	<!-- Top menu -->
-	<div ng-include="'./html/header.html'"></div>
+<!-- Top menu -->
+<div>
+	<nav id="navigation" class="navbar navbar-inverse navbar-fixed-top navbar-no-bg" role="navigation">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#top-navbar-1">
+					<span class="sr-only"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="index.html"></a>
+			</div>
+
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse" id="top-navbar-1">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a class="scroll-link" href="index.html" ng-bind-html=" 'message.home' | translate"></a></li>
+					<!--<li><a class="scroll-link" href="#whitebook" ng-bind-html=" 'message.about' | translate"></a></li>-->
+					<li><a href="javascript:;" ng-click="changeLangSelectIndex()">{{langs[langSelectIndex].name}}</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+</div>
 
 	<!-- Top content -->
 	<div class="top-content">
@@ -162,8 +185,19 @@
 		</div>
 	</div>
 
-	<!-- Footer -->
-	<div ng-include="'./html/footer.html'"></div>
+<!-- Footer -->
+<div>
+	<footer class="footer-container">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12 footer-copyright">
+					<div><i class="fa fa-envelope-o" aria-hidden="true"></i><a href="javascipt:;">IFD@ifoodschain.com</a></div>
+					<div><i class="fa fa-telegram" aria-hidden="true"></i><a href="https://t.me/ifoodschainEN">https://t.me/ifoodschainEN</a></div>
+				</div>
+			</div>
+		</div>
+	</footer>
+</div>
 
 </body>
 

@@ -2,14 +2,14 @@ var app = angular.module("myApp",['pascalprecht.translate','ngSanitize']);
 
 var mySwiper;
 
-var host = 'http://browser.ifoods.com';
-var projectName = "ifoods-explorer-home"
+var host = '';
+var projectName = ''
 var lang = window.localStorage.getItem("lang");
 
 app.config(['$translateProvider',
     function($translateProvider) {
         $translateProvider.useStaticFilesLoader({
-            prefix: '/'+projectName+'/i18n/',
+            prefix: 'i18n/',
             suffix: '.json'
         });
 
@@ -55,7 +55,7 @@ app.controller("myControlller",function ($scope, $translate, $http) {
 		if(searchVar == null || searchVar == "") {
 			return;
 		}
-		window.location.href='/'+projectName+'/html/search.html' + '#' + searchVar
+		window.location.href= '/html/search.html' + '#' + searchVar
 	}
 
 	/**

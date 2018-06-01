@@ -3,7 +3,7 @@ var app = angular.module("myApp",['pascalprecht.translate','ngSanitize']);
 app.config(['$translateProvider',
 	function($translateProvider) {
 		$translateProvider.useStaticFilesLoader({
-			prefix: '/'+projectName+'/i18n/',
+			prefix: projectName + '/i18n/',
 			suffix: '.json'
 		});
 
@@ -57,12 +57,12 @@ app.controller("search-Controller",function ($scope, $translate, $http) {
 	}).then(function successCallback(response) {
 		if(response.data.code == "0003") {
 			console.log(response.data.msg)
-			window.location.href='/'+projectName+'/html/searchNoFound.html'
+			window.location.href= '/html/searchNoFound.html'
 			return;
 		}
 		if(response.data.code != "0000" || response.data.data==null || response.data.data == 0) {
 			console.log(response.data.msg)
-			window.location.href='/'+projectName+'/html/404.html'
+			window.location.href= '/html/404.html'
 			return;
 		}
 		$scope.searchInfo = response.data.data;
@@ -75,7 +75,7 @@ app.controller("search-Controller",function ($scope, $translate, $http) {
 	 * @param txHash
 	 */
 	$scope.getTxByHash=function(txHash) {
-		window.location.href='/' + projectName + '/html/tx-info.html?hash=' + txHash
+		window.location.href= '/html/tx-info.html?hash=' + txHash
 	}
 
 })
