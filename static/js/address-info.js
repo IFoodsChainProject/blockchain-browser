@@ -3,7 +3,7 @@ var app = angular.module("myApp",['pascalprecht.translate','ngSanitize']);
 app.config(['$translateProvider',
 	function($translateProvider) {
 		$translateProvider.useStaticFilesLoader({
-			prefix: projectName + '/i18n/',
+			prefix: '../i18n/',
 			suffix: '.json'
 		});
 
