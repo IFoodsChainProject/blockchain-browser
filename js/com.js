@@ -41,6 +41,6 @@ function getQueryString(name) {
 	return paramValue == "" && (paramValue = null), paramValue
 }
 
-/*function txOnclickByhash(txhash) {
+function txOnclickByhash(txhash) {
 	window.location.href = '/html/tx-info.html?hash=' + txhash;
-}*/
+}

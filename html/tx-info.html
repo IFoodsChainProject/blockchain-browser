@@ -99,7 +99,11 @@
 				</tr>
 				<tr>
 					<th class="th-right col-xs-3" style='vertical-align: middle;text-align: right;'>{{'tx-block' | translate}}: </th>
-					<th class="th-left col-md-4" style='width:40%;vertical-align: middle;text-align: left;'>{{txInfo.blockId}}</th>
+					<th class="th-left col-md-4" style='width:40%;vertical-align: middle;text-align: left;'>
+						<button type="button" class="btn btn-link" ng-click="getBlockByHeight(txInfo.blockId)">
+							{{txInfo.blockId}}
+						</button>
+					</th>
 				</tr>
 				</tbody>
 			</table>
@@ -170,7 +174,7 @@
 </div>
 
 <!-- Footer -->
-<div ng-include="'./public/footer.html'"></div>
+<div ng-include="'./footer.html'"></div>
 
 </body>
 

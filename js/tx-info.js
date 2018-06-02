@@ -60,10 +60,21 @@ app.controller("tx-info-Controller",function ($scope, $translate, $http) {
 		}
 		var data = response.data.data;
 		$scope.txInfo = data;
+		console.log(data)
+		console.log(data.payload)
+		console.log(data.payload.recordData)
 
 	}, function errorCallback(response) {
 		console.log("tx info error");
 	});
+
+	/**
+	 * tx info by hash
+	 * @param txHash
+	 */
+	$scope.getBlockByHeight=function(height) {
+		window.location.href= '/html/block-info.html?height=' + height
+	}
 
 
 })
