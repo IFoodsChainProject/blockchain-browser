@@ -1,9 +1,5 @@
 var app = angular.module("myApp",['pascalprecht.translate','ngSanitize']);
 
-/*var host = 'http://browser.ifoods.com';*/
-/*var projectName = "ifoods-explorer-home"*/
-/*var lang = window.localStorage.getItem("lang");*/
-
 app.config(['$translateProvider',
 	function($translateProvider) {
 		$translateProvider.useStaticFilesLoader({

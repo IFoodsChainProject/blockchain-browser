@@ -1,4 +1,3 @@
-var projectName = ""
 
 /**
  * 时间戳转换

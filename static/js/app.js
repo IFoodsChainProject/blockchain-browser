@@ -1,8 +1,7 @@
 var app = angular.module("myApp",['pascalprecht.translate','ngSanitize']);
 
 var mySwiper;
-var host = 'http://browser.ifoods.com';
-var projectName = ''
+var host = 'http://39.106.203.100';
 var lang = window.localStorage.getItem("lang");
 
 app.config(['$translateProvider',
