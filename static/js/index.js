@@ -1,4 +1,24 @@
+var defaultTime = 10
 $(function() {
+	$(".leftSecond i").text(defaultTime);
+	refreshIndex()
+
+	var leftSecond = defaultTime;
+	setInterval(function () {
+		$(".leftSecond i").text(leftSecond);
+		if(leftSecond<=0){
+			$(".disappearDiv").animate(500, refreshIndex());
+			leftSecond = defaultTime;
+		}
+		leftSecond--;
+	},1000)
+
+})
+
+
+
+
+function refreshIndex() {
 	/**
 	 * get block list
 	 */
@@ -98,7 +118,7 @@ $(function() {
 			console.log("index tx list error")
 		}
 	});
-})
+}
 
 
 
