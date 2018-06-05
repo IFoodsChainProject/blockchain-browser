@@ -1,7 +1,8 @@
 var app = angular.module("myApp",['pascalprecht.translate','ngSanitize']);
 
 var mySwiper;
-var host = 'http://39.106.203.100';
+var host = 'http://127.0.0.1:28080';
+
 var lang = window.localStorage.getItem("lang");
 
 app.config(['$translateProvider',

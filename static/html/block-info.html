@@ -93,7 +93,7 @@
 					</tr>
 					<tr>
 						<th class="th-right">{{'time' | translate}}:</th>
-						<th class="th-left">{{blockInfo.blockData.timestamp*1000 | date:'yyyy-MM-dd hh:mm:ss'}}</th>
+						<th class="th-left">{{blockInfo.blockData.timestamp*1000 | date:'yyyy-MM-dd HH:mm:ss'}}</th>
 					</tr>
 					<tr>
 						<th class="th-right">MerkleTreeRoots:</th>
@@ -171,8 +171,15 @@
 						<td class="th-left data-th-title">
 							{{'tx.data-record' | translate}}
 						</td>
-						<th scope="row" class="th-right data-th-content" colspan="2">
-							{{tx.payload.decryptData}}
+						<th scope="row" class="th-right data-th-content" colspan="2"
+							ng-if="tx.payload.meatInfo && tx.payload.meatInfo.noMeatInfo ">
+							{{tx.payload.meatInfo.noMeatInfo}}
+						</th>
+						<th scope="row" class="th-right data-th-content" colspan="2"
+							ng-if="tx.payload.meatInfo && tx.payload.meatInfo.ph">
+							{{'tx.meat-ph' | translate}}: {{tx.payload.meatInfo.ph}}&nbsp;
+							{{'tx.meat-eCond' | translate}}: {{tx.payload.meatInfo.eCond}}&nbsp;
+							{{'tx.meat-res' | translate}}: {{tx.payload.meatInfo.res}}&nbsp;
 						</th>
 					</tr>
 
@@ -182,7 +189,7 @@
 								{{'time' | translate}}
 							</td>
 							<th scope="row" class="th-right"  colspan="2">
-								{{tx.timestamp*1000 | date:'yyyy-MM-dd hh:mm:ss'}}
+								{{tx.timestamp*1000 | date:'yyyy-MM-dd HH:mm:ss'}}
 							</th>
 						</tr>
 					</div>

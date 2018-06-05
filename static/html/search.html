@@ -94,7 +94,7 @@
 				</tr>
 				<tr>
 					<th class="th-right">{{'time' | translate}}:</th>
-					<th class="th-left">{{searchInfo.block.blockData.timestamp*1000 | date:'yyyy-MM-dd hh:mm:ss'}}</th>
+					<th class="th-left">{{searchInfo.block.blockData.timestamp*1000 | date:'yyyy-MM-dd HH:mm:ss'}}</th>
 				</tr>
 				<tr>
 					<th class="th-right">MerkleTreeRoots:</th>
@@ -172,8 +172,15 @@
 					<td class="th-left data-th-title">
 						{{'tx.data-record' | translate}}
 					</td>
-					<th scope="row" class="th-right data-th-content" colspan="2">
-						{{tx.payload.decryptData}}
+					<th scope="row" class="th-right data-th-content" colspan="2"
+						ng-if="tx.payload.meatInfo && tx.payload.meatInfo.noMeatInfo ">
+						{{tx.payload.meatInfo.noMeatInfo}}
+					</th>
+					<th scope="row" class="th-right data-th-content" colspan="2"
+						ng-if="tx.payload.meatInfo && tx.payload.meatInfo.ph">
+						{{'tx.meat-ph' | translate}}: {{tx.payload.meatInfo.ph}}&nbsp;
+						{{'tx.meat-eCond' | translate}}: {{tx.payload.meatInfo.eCond}}&nbsp;
+						{{'tx.meat-res' | translate}}: {{tx.payload.meatInfo.res}}&nbsp;
 					</th>
 				</tr>
 
@@ -183,7 +190,7 @@
 							{{'time' | translate}}
 						</td>
 						<th scope="row" class="th-right"  colspan="2">
-							{{tx.timestamp*1000 | date:'yyyy-MM-dd hh:mm:ss'}}
+							{{tx.timestamp*1000 | date:'yyyy-MM-dd HH:mm:ss'}}
 						</th>
 					</tr>
 				</div>
@@ -224,7 +231,7 @@
 				</tr>
 				<tr>
 					<th class="th-right col-xs-3" style='vertical-align: middle;text-align: right;'>{{'time' | translate}} : </th>
-					<th class="th-left col-md-4"  style='vertical-align: middle;text-align: left;'>{{searchInfo.tx.timestamp*1000 | date:'yyyy-MM-dd hh:mm:ss'}}</th>
+					<th class="th-left col-md-4"  style='vertical-align: middle;text-align: left;'>{{searchInfo.tx.timestamp*1000 | date:'yyyy-MM-dd HH:mm:ss'}}</th>
 				</tr>
 				<tr>
 					<th class="th-right col-xs-3" style='vertical-align: middle;text-align: right;'>{{'tx-block' | translate}} : </th>
@@ -279,8 +286,15 @@
 					<th scope="row" class="th-left">
 						{{'tx.data-record' | translate}}
 					</th>
-					<th scope="row" class="th-right" colspan="2">
-						{{searchInfo.tx.payload.decryptData}}
+					<th scope="row" class="th-right data-th-content" colspan="2"
+						ng-if="searchInfo.tx.payload.meatInfo && searchInfo.tx.payload.meatInfo.noMeatInfo ">
+						{{searchInfo.tx.payload.meatInfo.noMeatInfo}}
+					</th>
+					<th scope="row" class="th-right data-th-content" colspan="2"
+						ng-if="searchInfo.tx.payload.meatInfo && searchInfo.tx.payload.meatInfo.ph">
+						{{'tx.meat-ph' | translate}}: {{searchInfo.tx.payload.meatInfo.ph}}&nbsp;
+						{{'tx.meat-eCond' | translate}}: {{searchInfo.tx.payload.meatInfo.eCond}}&nbsp;
+						{{'tx.meat-res' | translate}}: {{searchInfo.tx.payload.meatInfo.res}}&nbsp;
 					</th>
 				</tr>
 				<!-- time -->
@@ -289,7 +303,7 @@
 						{{'time' | translate}}
 					</th>
 					<th scope="row" class="th-right" colspan="2">
-						{{searchInfo.tx.timestamp*1000 | date:'yyyy-MM-dd hh:mm:ss'}}
+						{{searchInfo.tx.timestamp*1000 | date:'yyyy-MM-dd HH:mm:ss'}}
 					</th>
 				</tr>
 				</tbody>
@@ -331,11 +345,11 @@
 				</tr>
 				<tr>
 					<th class="th-right col-xs-3" style='vertical-align: middle;text-align: right;'>{{'address.addressGeneTime' | translate}}: </th>
-					<th class="th-left col-md-4"  style='vertical-align: middle;text-align: left;'>{{searchInfo.address.createTime*1000 | date:'yyyy-MM-dd hh:mm:ss'}}</th>
+					<th class="th-left col-md-4"  style='vertical-align: middle;text-align: left;'>{{searchInfo.address.createTime*1000 | date:'yyyy-MM-dd HH:mm:ss'}}</th>
 				</tr>
 				<tr>
 					<th class="th-right col-xs-3" style='vertical-align: middle;text-align: right;'>{{'address.recentTime' | translate}}: </th>
-					<th class="th-left col-md-4"  style='vertical-align: middle;text-align: left;'>{{searchInfo.address.lastTime*1000 | date:'yyyy-MM-dd hh:mm:ss'}}</th>
+					<th class="th-left col-md-4"  style='vertical-align: middle;text-align: left;'>{{searchInfo.address.lastTime*1000 | date:'yyyy-MM-dd HH:mm:ss'}}</th>
 				</tr>
 				<tr>
 					<th class="th-right col-xs-3" style='vertical-align: middle;text-align: right;'>{{'tx.count' | translate}}: </th>
@@ -406,8 +420,15 @@
 						<th scope="row" class="th-left">
 							{{'tx.data-record' | translate}}
 						</th>
-						<th scope="row" class="th-right" colspan="2">
-							{{txInfo.payload.decryptData}}
+						<th scope="row" class="th-right data-th-content" colspan="2"
+							ng-if="txInfo.payload.meatInfo && txInfo.payload.meatInfo.noMeatInfo ">
+							{{txInfo.payload.meatInfo.noMeatInfo}}
+						</th>
+						<th scope="row" class="th-right data-th-content" colspan="2"
+							ng-if="txInfo.payload.meatInfo && txInfo.payload.meatInfo.ph">
+							{{'tx.meat-ph' | translate}}: {{txInfo.payload.meatInfo.ph}}&nbsp;
+							{{'tx.meat-eCond' | translate}}: {{txInfo.payload.meatInfo.eCond}}&nbsp;
+							{{'tx.meat-res' | translate}}: {{txInfo.payload.meatInfo.res}}&nbsp;
 						</th>
 					</tr>
 					<!-- time -->
@@ -416,7 +437,7 @@
 							{{'time' | translate}}
 						</th>
 						<th scope="row" class="th-right" colspan="2">
-							{{txInfo.timestamp*1000 | date:'yyyy-MM-dd hh:mm:ss'}}
+							{{txInfo.timestamp*1000 | date:'yyyy-MM-dd HH:mm:ss'}}
 						</th>
 					</tr>
 					</tbody>

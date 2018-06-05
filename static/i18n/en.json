@@ -36,7 +36,10 @@
     "type-1": "Assets Issue Transaction",
     "type-64": "Asset Registration Transaction",
     "type-128": "Transfer Transaction",
-    "type-129": "Data record"
+    "type-129": "Data Record",
+    "meat-ph": "Meat pH",
+    "meat-eCond": "Meat Electricity",
+    "meat-res": "Meat Conjecture Ruality"
   },
   "address": {
     "address": "Address",

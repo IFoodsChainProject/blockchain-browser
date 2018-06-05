@@ -98,11 +98,11 @@
 				</tr>
 				<tr>
 					<th class="th-right col-xs-3" style='vertical-align: middle;text-align: right;'>{{'address.addressGeneTime' | translate}}: </th>
-					<th class="th-left col-md-4"  style='vertical-align: middle;text-align: left;'>{{addressInfo.createTime*1000 | date:'yyyy-MM-dd hh:mm:ss'}}</th>
+					<th class="th-left col-md-4"  style='vertical-align: middle;text-align: left;'>{{addressInfo.createTime*1000 | date:'yyyy-MM-dd HH:mm:ss'}}</th>
 				</tr>
 				<tr>
 					<th class="th-right col-xs-3" style='vertical-align: middle;text-align: right;'>{{'address.recentTime' | translate}}: </th>
-					<th class="th-left col-md-4"  style='vertical-align: middle;text-align: left;'>{{addressInfo.lastTime*1000 | date:'yyyy-MM-dd hh:mm:ss'}}</th>
+					<th class="th-left col-md-4"  style='vertical-align: middle;text-align: left;'>{{addressInfo.lastTime*1000 | date:'yyyy-MM-dd HH:mm:ss'}}</th>
 				</tr>
 				<tr>
 					<th class="th-right col-xs-3" style='vertical-align: middle;text-align: right;'>{{'tx.count' | translate}}: </th>
@@ -173,8 +173,15 @@
 					<th scope="row" class="th-left">
 						{{'tx.data-record' | translate}}
 					</th>
-					<th scope="row" class="th-right" colspan="2">
-						{{txInfo.payload.decryptData}}
+					<th scope="row" class="th-right data-th-content" colspan="2"
+						ng-if="txInfo.payload.meatInfo && txInfo.payload.meatInfo.noMeatInfo ">
+						{{txInfo.payload.meatInfo.noMeatInfo}}
+					</th>
+					<th scope="row" class="th-right data-th-content" colspan="2"
+						ng-if="txInfo.payload.meatInfo && txInfo.payload.meatInfo.ph">
+						{{'tx.meat-ph' | translate}}: {{txInfo.payload.meatInfo.ph}}&nbsp;
+						{{'tx.meat-eCond' | translate}}: {{txInfo.payload.meatInfo.eCond}}&nbsp;
+						{{'tx.meat-res' | translate}}: {{txInfo.payload.meatInfo.res}}&nbsp;
 					</th>
 				</tr>
 				<!-- time -->
@@ -183,7 +190,7 @@
 						{{'time' | translate}}
 					</th>
 					<th scope="row" class="th-right" colspan="2">
-						{{txInfo.timestamp*1000 | date:'yyyy-MM-dd hh:mm:ss'}}
+						{{txInfo.timestamp*1000 | date:'yyyy-MM-dd HH:mm:ss'}}
 					</th>
 				</tr>
 				</tbody>
