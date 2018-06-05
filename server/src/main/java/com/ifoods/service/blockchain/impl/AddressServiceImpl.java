@@ -148,9 +148,9 @@ public class AddressServiceImpl implements AddressService
         
         //解析成对应的参数, 地址 和 数据;
         log.info("txType=129 data={}", payload.getRecordData());
-        Map<String, String> map = null;
+        Map<String, Object> map = null;
         try {
-            map = BlockUtils.toAddressAndData(payload.getRecordData());
+            map = BlockUtils.toAddressAndMeatInfo(payload.getRecordData());
         }catch(Exception e) {
         }
         
@@ -160,13 +160,10 @@ public class AddressServiceImpl implements AddressService
             if(map == null) {
                 return;
             }
-            addressId = map.get(Constants.RECORDTYPE_ADDRESS);
+            addressId = map.get(Constants.RECORDTYPE_ADDRESS).toString();
             if(StringUtils.isEmpty(addressId)) {
                 return;
             }
-            //TODO 记录原数据防止解析错误, 不能记录数据
-            //payload.setRecordData(map.get(Constants.RECORDTYPE_DATA));
-            //transaction.setPayload(payload);
         }catch(Exception e) {
             log.error("save data error. resultmap={}", map, e);
             return;

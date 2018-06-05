@@ -25,6 +25,5 @@ public class Constants {
     /** 定时任务 */
     public final static String GET_BLOCK_TIMER = "0/9 * * * * ?";
     
-    
 }
 

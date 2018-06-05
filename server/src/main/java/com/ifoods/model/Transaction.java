@@ -14,6 +14,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import com.google.gson.annotations.SerializedName;
 import com.ifoods.common.Constants;
 import com.ifoods.common.util.BlockUtils;
+import com.ifoods.common.util.CommonUtils;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -353,22 +354,30 @@ public class Transaction implements Serializable {
         /**
          * 解析数据信息
          */
-        private String decryptData;
+        private MeatInfo meatInfo;
         
         /**
          * 解析数据
          */
-        public String getDecryptData() {
+        public MeatInfo getMeatInfo() {
+            MeatInfo meatInfo = new MeatInfo();
             try{
-                Map<String, String> map = BlockUtils.toAddressAndData(recordData);
-                return map.get(Constants.RECORDTYPE_DATA);
+                Map<String, Object> map = BlockUtils.toAddressAndMeatInfo(recordData);
+                if(map.get(Constants.RECORDTYPE_DATA) == null) {
+                    meatInfo.setNoMeatInfo(BlockUtils.toPrimitiveData(recordData));
+                }else {
+                    meatInfo = (MeatInfo)map.get(Constants.RECORDTYPE_DATA);
+                    //小数 转 百分比
+                    meatInfo.setRes(CommonUtils.toPercentage(meatInfo.getRes()));
+                }
             }catch(Exception e) {
-                return BlockUtils.toPrimitiveData(recordData);
+                meatInfo.setNoMeatInfo(BlockUtils.toPrimitiveData(recordData));
             }
+            return meatInfo;
         }
 
-        public void setDecryptData(String decryptData) {
-            this.decryptData = decryptData;
+        public void setMeatInfo(MeatInfo meatInfo) {
+            this.meatInfo = meatInfo;
         }
 
         public String getRecordType() {
